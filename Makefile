@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 00:10:26 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/04/10 17:13:00 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/04/12 23:56:31 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(NAME): $(OBJ)
 
 clean:
 	@/bin/rm -f $(OBJ)
-# rm as well for bonuses variable
+# rm as well for bonuses variable $(BONUS_OBJ)
 
 fclean: clean
 	@/bin/rm -f $(NAME)
