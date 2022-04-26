@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 21:44:30 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/04/23 00:09:20 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/04/23 00:09:04 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/04/25 20:44:35 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dest, const void *restrict src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t			cnt;
-	unsigned char	*destiny;
+	size_t	i;
 
-	cnt = 0;
-	destiny = dest;
-	while (cnt < n)
+	i = 0;
+	if (((size_t)dest > (size_t)src) && ((size_t)dest - (size_t)src < n))
 	{
-		destiny[cnt] = ((unsigned char *) src)[cnt];
-		cnt++;
+		i =  1;
+		while (n >= i)
+		{
+			((unsigned char *)dest)[n - i] = ((unsigned char *)src)[n - i];
+			i++;
+		}
+	}
+	else if ((src > dest) || ((size_t)src - (size_t)dest < n))
+	{
+		while (i < n)
+		{
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			i++;
+		}
 	}
 	return (dest);
 }
