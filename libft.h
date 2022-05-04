@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 23:57:49 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/01 13:51:37 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/05/02 20:06:01 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n);
 
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
 
 #endif
