@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 02:44:30 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/09 18:25:00 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/05/01 13:41:47 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/05/01 13:53:18 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_toupper(int c)
 {
-	unsigned char	*pointer;
-	size_t	cnt;
+	if (c >= 'a' && c <= 'z')
+		c = c - 32;
 
-	pointer = s;
-	cnt = 0;
-	while (cnt < n)
-	{
-		pointer[cnt] = c;
-		cnt++;
-	}
-	return (s);
+	return (c);
 }

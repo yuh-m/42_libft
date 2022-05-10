@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 02:44:30 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/09 18:25:00 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/05/04 14:40:58 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/05/04 15:44:26 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*pointer;
 	size_t	cnt;
 
-	pointer = s;
 	cnt = 0;
+	if (n == 0)
+		return (0);
 	while (cnt < n)
 	{
-		pointer[cnt] = c;
-		cnt++;
+		if (((unsigned char *)s1)[cnt] == ((unsigned char *)s2)[cnt])
+			cnt++;
+		else
+			return (((unsigned char *) s1)[cnt] - ((unsigned char *) s2)[cnt]);
 	}
-	return (s);
+	return (0);
 }

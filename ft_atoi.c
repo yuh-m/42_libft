@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 02:44:30 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/09 18:25:00 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/05/08 19:56:39 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/05/08 20:48:06 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	unsigned char	*pointer;
-	size_t	cnt;
+	int	cnt;
+	int	minus_sign;
+	int	res;
 
-	pointer = s;
 	cnt = 0;
-	while (cnt < n)
+	minus_sign = 1;
+	res = 0;
+	while (nptr[cnt] == ' ' || nptr[cnt] == '\n' || nptr[cnt] == '\t' || \
+	nptr[cnt] == '\v' || nptr[cnt] == '\f' || nptr[cnt] == '\r')
+		cnt++;
+	if (nptr[cnt] == '-' || nptr[cnt] == '+')
 	{
-		pointer[cnt] = c;
+		if (nptr[cnt] == '-')
+			minus_sign = -1;
 		cnt++;
 	}
-	return (s);
+	while (nptr[cnt] >= '0' && nptr[cnt] <= '9')
+	{
+		res = (res * 10) + (nptr[cnt] - '0');
+		cnt++;
+	}
+	return (res * minus_sign);
 }

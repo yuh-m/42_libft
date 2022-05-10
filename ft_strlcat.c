@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 02:44:30 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/09 18:25:00 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/04/30 18:03:25 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/05/01 12:52:53 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
-{
-	unsigned char	*pointer;
-	size_t	cnt;
+size_t	ft_strlen(const char *string);
 
-	pointer = s;
-	cnt = 0;
-	while (cnt < n)
+size_t	ft_strlcat(char *dest, const char *src, size_t n)
+{
+	size_t	i;
+	size_t	j;
+	size_t	len_init_dest;
+
+	i = ft_strlen(dest);
+	len_init_dest = i;
+	j = 0;
+	if (i > n)
+		return (n + ft_strlen(dest));
+	while (i + 1 < n)
 	{
-		pointer[cnt] = c;
-		cnt++;
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	return (s);
+	dest[i] = '\0';
+	return (len_init_dest + ft_strlen (src));
 }
