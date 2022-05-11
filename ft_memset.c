@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 02:44:30 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/09 18:25:00 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/05/11 04:08:40 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*pointer;
-	size_t	cnt;
+	size_t			cnt;
 
 	pointer = s;
 	cnt = 0;

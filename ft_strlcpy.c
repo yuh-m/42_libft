@@ -6,13 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 21:30:28 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/04/30 18:02:29 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/05/11 03:28:53 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *string);
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {

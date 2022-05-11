@@ -6,13 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 20:35:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/03 21:03:31 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/05/11 03:43:30 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *string);
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -26,7 +24,7 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-			return ((char*)s + i);
+			return ((char *) s + i);
 		i++;
 	}
 	return (NULL);
