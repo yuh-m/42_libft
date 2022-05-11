@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 00:10:26 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/05/11 15:27:02 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/05/11 16:47:22 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ ft_strlcpy.c ft_strlcat.c \
 ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
 ft_strncmp.c \
 ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c \
-ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c
+ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c
 
 OBJ = $(SRC:.c=.o)
 
