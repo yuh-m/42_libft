@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 20:35:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/11 03:36:38 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/05/12 05:40:39 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strrchr(const char *s, int c)
 	len_src = ft_strlen(s);
 	i = (char *)s + len_src;
 	cnt = 0;
+	if (!ft_isascii(c))
+		return ((char *) s);
 	if (c == '\0')
 		return ((char *)s + len_src);
 	while (s + len_src >= s)

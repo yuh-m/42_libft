@@ -6,12 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 01:59:51 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/12 04:55:38 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/05/12 05:08:11 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
