@@ -12,24 +12,30 @@
 
 #include "libft.h"
 
+static long	convert_negative(long n, int fd)
+{
+	write(fd, "-", 1);
+	n = n * -1;
+	return (n);
+}
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	int		digit;
 	long	number;
-	int		exp;
+	long	n_long;
+	long	exp;
 
 	exp = 1;
+	n_long = n;
 	if (n == 0)
 		write(fd, "0", 1);
 	if (n < 0)
+		n_long = convert_negative(n_long, fd);
+	number = n_long;
+	while (n_long > 0)
 	{
-		write(fd, "-", 1);
-		n = n * -1;
-	}
-	number = n;
-	while (n > 0)
-	{
-		n = n / 10;
+		n_long = n_long / 10;
 		exp = exp * 10;
 	}
 	while (exp > 1)
