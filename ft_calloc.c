@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 10:28:20 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/11 03:39:15 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/05/14 02:34:32 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,19 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t	tot_size;
-	void	*dest;
+	void	*result;
 
 	tot_size = nmemb * size;
-	dest = malloc(tot_size);
-	if (!dest)
-		return (NULL);
-	ft_memset(dest, 0, tot_size);
-	return (dest);
+	if (tot_size)
+	{
+		if ((tot_size / nmemb) != size)
+			return (NULL);
+		result = malloc(tot_size);
+		if (!result)
+			return (NULL);
+		ft_bzero(result, tot_size);
+	}
+	else
+		result = malloc(0);
+	return (result);
 }

@@ -6,13 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 02:44:30 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/04/21 21:58:36 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/05/14 01:12:44 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_memset(void *s, int c, size_t n);
 
 void	*ft_bzero(void *s, size_t n)
 {
