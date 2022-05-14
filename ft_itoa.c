@@ -46,7 +46,7 @@ char	*ft_itoa(int n)
 	negative_sign = is_negative(number);
 	if (negative_sign == 1)
 		number = number * -1;
-	digits = number_digits(n);
+	digits = number_digits(number);
 	result = (char *) malloc(digits + negative_sign + 1);
 	if (result == NULL)
 		return (NULL);
