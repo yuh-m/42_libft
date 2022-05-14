@@ -12,49 +12,95 @@
 
 #include "libft.h"
 
-static size_t	str_count_word(const char *s, char c)
+static	size_t	strelem(char *str, char delim)
 {
 	size_t	i;
-	size_t	cnt_word;
 
-	i = 0;
-	cnt_word = 0;
-	while (s[i])
+	if (!*str)
+		return (0);
+	i = 1;
+	while (*str)
 	{
-		if (s[i] != c)
-			cnt_word++;
-		while (s[i] != c && s[i + 1])
+		if (*str == delim)
 			i++;
+		str++;
+	}
+	return (i);
+}
+
+static char	*strsubsep(char *stringp, char sub, char delim)
+{
+	size_t	i;
+	size_t	j;
+	size_t	len;
+
+	if (!stringp)
+		return (NULL);
+	i = 0;
+	j = 0;
+	len = ft_strlen(stringp);
+	while (stringp[i] && i < len)
+	{
+		if (stringp[i] != delim)
+			stringp[j++] = stringp[i];
+		if (stringp[i] == delim && stringp[i + 1] != delim)
+			if (j > 0 && i < len - 1)
+				stringp[j++] = sub;
 		i++;
 	}
-	return (cnt_word);
+	stringp[j] = '\0';
+	return (stringp);
+}
+
+static void	pfree(char **ptr, size_t size)
+{
+	size_t	i;
+
+	i = -1;
+	while (++i < size)
+	{
+		free(ptr[i]);
+		ptr[i] = NULL;
+	}
+	free(ptr);
+	ptr = NULL;
+}
+
+static void	copyelem(char **save_ptr, char *str, size_t size, char delim)
+{
+	size_t	i;
+
+	str = strsubsep(str, '\0', delim);
+	i = -1;
+	while (++i < (size - 1))
+	{
+		save_ptr[i] = ft_strdup(str);
+		if (!save_ptr[i])
+		{
+			pfree(save_ptr, i);
+			return ;
+		}
+		str += ft_strlen(str) + 1;
+	}
+	save_ptr[i] = NULL;
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	k;
-	char	**result;
+	char	**ptr;
+	char	*str;
+	size_t	size;
 
-	i = 0;
-	k = 0;
-	result = (char **)malloc(sizeof(char *) * (str_count_word(s, c) + 1));
-	if (!s || !result)
+	if (!s)
 		return (NULL);
-	while (i < str_count_word (s, c))
-	{
-		result[i] = (char *)malloc(sizeof(char) * (ft_strlen(&s[k] + 1)));
-		if (!result[i])
-			return (NULL);
-		j = 0;
-		while (s[k] == c)
-			k++;
-		while (s[k] != c && s[k])
-			result[i][j++] = s[k++];
-		result[i][j] = '\0';
-		i++;
-	}
-	result[i] = '\0';
-	return (result);
+	str = strsubsep(ft_strdup(s), c, c);
+	if (!str)
+		return (NULL);
+	size = strelem(str, c) + 1;
+	ptr = (char **)malloc(sizeof(char *) * size);
+	if (!ptr)
+		return (NULL);
+	copyelem(ptr, str, size, c);
+	free(str);
+	return (ptr);
 }
