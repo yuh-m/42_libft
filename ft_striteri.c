@@ -18,11 +18,11 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 
 	cnt = 0;
 	if (!s || !f)
-		return;
+		return ;
 	while (s[cnt])
 	{
 		f(cnt, s + cnt);
 		cnt++;
 	}
-	return;
+	return ;
 }
